@@ -3,13 +3,15 @@ package com.beshoy.mvc.thymeleafpractice.controllers;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HelloWorldController {
     // new a controller method to show the initial form
-    @RequestMapping("/showform")
+    @GetMapping("/showform")
     public String showForm(){
         return "helloworld-form";
     }
@@ -40,7 +42,7 @@ model.addAttribute("message", result);
     }
 
 
-    @RequestMapping("/processformv3")
+    @PostMapping("/processformv3")
     public String processFormv3(@RequestParam("studentName") String theName,
                                 Model model){
 
